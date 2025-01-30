@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skilz - Home Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#4F46E5" data-border-radius='small'></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -63,13 +77,15 @@
 
         /* Hero Section */
         .hero {
-            background-image: url('https://via.placeholder.com/1200x600'); /* Replace with actual image */
+            background-image: url('/banner.png');
+            /* Replace with actual image */
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 5rem 2rem;
             position: relative;
+            height: 60vh
         }
 
         .hero::after {
@@ -120,6 +136,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo.png" alt="">
@@ -144,5 +161,110 @@
             </div>
         </div>
     </section>
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <p class="text-gray-600">We'll take care of your needs</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 mb-16">
+            <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-home text-green-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Home Services</h3>
+                <p class="text-gray-600">Expert home services from trusted professionals at your fingertips</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-blue-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Artisan Centre & Craftsman Hub</h3>
+                <p class="text-gray-600">Connect with skilled artisans for your custom crafting needs</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg border border-gray-200 text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-store text-purple-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Fair Trade Marketplace</h3>
+                <p class="text-gray-600">Shop ethically sourced products from local artisans</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-lg border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Reliant, Fast, Efficient.</h2>
+                <p class="text-gray-600 mb-6">Get expert services immediately, from handymen to professional
+                    cleaners. Our platform provides quick and reliable solutions when you need them most. With our
+                    network of verified professionals, you can rest assured knowing you're in capable hands.</p>
+                <button class="!rounded-button bg-green-500 text-white px-6 py-3 font-medium">Learn more about
+                    services</button>
+            </div>
+            <div class="rounded-lg overflow-hidden">
+                <div class="rounded-lg overflow-hidden"> <img src="/picone.png" alt=""> </div>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="rounded-lg overflow-hidden"> <img src="/pictwo.png" alt=""> </div>
+            <div class="bg-white p-8 rounded-lg border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Earn as a skilled worker</h2>
+                <p class="text-gray-600 mb-6">Join our platform as a service provider and connect with customers who
+                    need your expertise. Set your own schedule, choose your service area, and grow your business
+                    with our support. We provide the tools and platform you need to succeed.</p> <button
+                    class="!rounded-button bg-green-500 text-white px-6 py-3 font-medium">Join as service
+                    provider</button>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" alt="">
+
+                    <p class="text-gray-600 text-sm">Connecting skilled professionals with those who need their
+                        services.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Home Services</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Artisan Centre</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Marketplace</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <p class="text-gray-600 text-sm text-center">&copy; 2024 Professional Services Platform. All rights
+                    reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
+
+
+
+
+
