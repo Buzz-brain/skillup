@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .left {
+            flex: 1;
+            background-color: #00A550;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .left img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .left h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .left p {
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://via.placeholder.com/300/00A550?text=Arrows'); /* Replace with actual arrows background */
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .left-content {
+            z-index: 2;
+            text-align: center;
+        }
+
+        .right {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            width:100%;
+            flex-direction: column;
+
+        }
+
+        .right h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .right p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00A550;
+            box-shadow: 0 0 5px rgba(0, 165, 80, 0.3);
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .actions a {
+            text-decoration: none;
+            color: #00A550;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: white;
+            background-color: #00A550;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #008B44;
+        }
+
+        .footer {
+            margin-top: 10px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #00A550;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="background-pattern"></div>
+            <div class="left-content">
+                <img src="https://via.placeholder.com/150" alt="Logo">
+                <h1>SkillUp</h1>
+                <p>Empowering Skills, Delivering Services...</p>
+            </div>
+        </div>
+
+        <div class="right">
+            <h2>Login to your Account</h2>
+            <p>Kindly fill in login details to continue as a skilled worker.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password">
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Keep me signed in</label>
+                </div>
+                <div class="actions">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button class="btn">Log In</button>
+            </form>
+            <div class="footer">
+                <p>Don’t have an Account? <a href="/worker-register">Create an account</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('login-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/login-skilled-worker', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = '/dashboard';
+                } else {
+                    alert('Invalid email or password');
+                }
+            })
+            .catch((error) => console.error(error));
+        });
+    </script>
+</body>
+</html>

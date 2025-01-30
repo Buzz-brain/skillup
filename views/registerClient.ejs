@@ -1,0 +1,141 @@
+<!-- Create Account Page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        .bg-pattern {
+            background: #0DC268;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cg fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'1\' opacity=\'0.3\'%3E%3Cpath d=\'M0 50h100M50 0v100M0 0l100 100M0 100L100 0\'/%3E%3C/g%3E%3C/svg%3E');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="flex">
+    <!-- Left Side -->
+    <div class="w-1/2 bg-pattern flex flex-col justify-center items-center text-white p-10">
+        <h1 class="text-5xl font-bold mb-4">Skill<span class="text-blue-500">Up</span></h1>
+        <p class="text-lg">Empowering Skills, Delivering Services...</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="w-1/2 flex justify-center items-center bg-gray-100" style="padding-top: 30px">
+        <div class="w-3/4">
+            <h2 class="text-3xl font-bold mb-6">Create Account</h2>
+            <p class="text-gray-600 mb-4">Fill in personal information to continue registration.</p>
+
+            <!-- Tabs -->
+            <div class="flex gap-4 mb-6">
+                <a href="/client-register"><button
+                        class=" py-2 px-2 bg-green-500 text-white rounded focus:outline-none">Register as a
+                        Client</button></a>
+                <a href="/worker-register"><button
+                        class=" py-2 px-2 bg-gray-200 text-gray-600 rounded focus:outline-none">Register as a Skilled
+                        Worker</button></a>
+            </div>
+
+            <!-- Form -->
+            <form id="register-form">
+                <div class="mb-4">
+                    <label for="first-name" class="block text-gray-700">First Name</label>
+                    <input id="first-name" type="text" placeholder="Enter First Name"
+                        class="w-full border rounded px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="last-name" class="block text-gray-700">Last Name</label>
+                    <input id="last-name" type="text" placeholder="Enter Last Name"
+                        class="w-full border rounded px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email Address</label>
+                    <input id="email" type="email" placeholder="Enter Email Address"
+                        class="w-full border rounded px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700">Phone Number</label>
+                    <input id="phone" type="tel" placeholder="Enter Mobile Number"
+                        class="w-full border rounded px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700">Password</label>
+                    <input id="password" type="password" placeholder="Enter Password"
+                        class="w-full border rounded px-4 py-2">
+                </div>
+                <div class="mb-4">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="form-checkbox text-green-500">
+                        <span class="ml-2 text-gray-600">I agree to the <a href="#" class="text-blue-500">Terms and
+                                Conditions</a>.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-green-500 text-white py-2 rounded">Register</button>
+            </form>
+
+            <p class="text-gray-600 mt-4 text-center">Already have an account? <a href="/client-login"
+                    class="text-blue-500">Login</a></p>
+        </div>
+    </div>
+    <script>
+        // Get the form element
+        const form = document.getElementById('register-form');
+
+        // Add an event listener to the form
+        form.addEventListener('submit', (e) => {
+            // Prevent the default form submission behavior
+            e.preventDefault();
+
+            // Get the form data
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            // Make an API call to the backend to register the user
+            fetch('/register-client', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    password
+                })
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    alert('Registration successful!');
+                    window.location.href = '/client-login'; // Route to login page
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert('Registration failed. Please try again.');
+                });
+
+        });
+
+    </script>
+    </script>
+</body>
+
+</html>

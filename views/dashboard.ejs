@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #28a745;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main Styles */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .job-listings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .job-listing {
+            background-color: #fff;
+            padding: 1rem;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-info {
+            margin-bottom: 20px;
+        }
+
+        .job-actions {
+            text-align: center;
+        }
+
+        .apply-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/post">Post a Job</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Job Listings</h1>
+        <div class="job-listings">
+            <!-- Job listings will be rendered here -->
+        </div>
+    </main>
+    <script>
+        const jobListingsContainer = document.querySelector('.job-listings');
+
+        // Fetch job listings from API
+        fetch('/view-jobs')
+            .then(response => response.json())
+            .then(data => {
+                // Render job listings
+                data.forEach(job => {
+                    const jobListingHTML = `
+                <div class="job-listing">
+                    <h2>Artisan: ${job.artisan}</h2>
+                    <p>Nature of Service: ${job.natureOfService}</p>
+                    <p>Job Description: ${job.jobDescription}</p>
+                    <p>Service Address: ${job.serviceAddress}</p>
+                    <p>Timeline: ${job.timeline}</p>
+                    <p>Duration: ${job.duration}</p>
+                    <p>Budget: $${job.budget}</p>
+                    <p>Posted by: ${job.fullName}</p>
+                    <p>Phone Number: ${job.phoneNumber}</p>
+                </div>
+            `;
+                    jobListingsContainer.insertAdjacentHTML('beforeend', jobListingHTML);
+                });
+            })
+            .catch(error => console.error('Error fetching job listings:', error));
+
+
+    </script>
+</body>
+
+</html>

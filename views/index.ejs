@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skilz - Home Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Header Section */
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3cb371;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-buttons button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #3cb371;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .auth-buttons .login {
+            background-color: transparent;
+            color: #3cb371;
+        }
+
+        .auth-buttons .create-account {
+            background-color: #3cb371;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x600'); /* Replace with actual image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-buttons button {
+            background-color: #3cb371;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .hero-buttons button.secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Resources</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="/client-login"><button class="login">Login</button></a>
+            <a href="/client-register"><button class="create-account">Create Account</button></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Home service has never been more convenient.</h1>
+            <p>Offering comprehensive home service solutions, delivered right to your doorstep.</p>
+            <div class="hero-buttons">
+                <a href="/worker-login"><button>I am a skilled worker</button></a>
+                <a href="/client-login"><button class="secondary">I want to hire a skilled worker</button></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
