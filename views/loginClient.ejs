@@ -17,7 +17,6 @@
         body {
             display: flex;
             height: 100vh;
-            background-color: #f9f9f9;
             overflow: hidden;
         }
 
@@ -28,7 +27,7 @@
 
         .left {
             flex: 1;
-            background-color: #00A550;
+            background-color: #02BE62;
             color: white;
             display: flex;
             flex-direction: column;
@@ -38,19 +37,7 @@
         }
 
         .left img {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-
-        .left h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .left p {
-            font-size: 1rem;
-            text-align: center;
+            width: 280px;
         }
 
         .background-pattern {
@@ -72,10 +59,11 @@
 
         .right {
             flex: 1;
-            display: flex;
             padding: 50px;
+            display: flex;
+            width:100%;
             flex-direction: column;
-            width: 100%;
+            justify-content: center;
         }
 
         .right h2 {
@@ -129,13 +117,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
             margin-bottom: 20px;
         }
 
         .actions a {
             text-decoration: none;
-            color: #00A550;
+            color: rgb(68, 68, 250);
             font-size: 0.9rem;
         }
 
@@ -162,7 +149,7 @@
 
         .footer a {
             text-decoration: none;
-            color: #00A550;
+            color: rgb(68, 68, 250);
         }
     </style>
 </head>
@@ -171,8 +158,7 @@
         <div class="left">
             <div class="background-pattern"></div>
             <div class="left-content">
-                <img src="logo.png" alt="Logo">
-                <p>Empowering Skills, Delivering Services...</p>
+                <img src="logo_white.png" alt="Logo">
             </div>
         </div>
         
@@ -188,15 +174,17 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="Enter Password">
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">Keep me signed in</label>
-                </div>
-                <div class="actions">
-                    <a href="#">Forgot Password?</a>
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="checkbox">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Keep me signed in</label>
+                    </div>
+                    <div class="actions">
+                        <a href="#">Forgot Password?</a>
+                    </div>
                 </div>
                 <button class="btn">Log In</button>
-            </form>
+                </form>
             <div class="footer">
                 <p>Don’t have an Account? <a href="/client-register">Create an account</a></p>
             </div>

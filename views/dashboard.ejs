@@ -7,40 +7,70 @@
     <title>Job Listings</title>
 
     <style>
-        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
         }
 
         body {
-            font-family: Arial, sans-serif;
             background-color: #f9f9f9;
         }
 
-        /* Header Styles */
+        /* Header Section */
         header {
-            background-color: #28a745;
-            padding: 1rem;
-            text-align: center;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3cb371;
         }
 
-        header nav ul li {
-            display: inline-block;
-            margin-right: 20px;
+        nav {
+            display: flex;
+            gap: 1.5rem;
         }
 
-        header nav a {
-            color: #fff;
+        nav a {
             text-decoration: none;
+            color: #333;
+            font-weight: 500;
         }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-buttons button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #3cb371;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .auth-buttons .logout {
+            background-color: transparent;
+            color: #3cb371;
+        }
+
+        .auth-buttons .welcome {
+            background-color: #3cb371;
+            color: white;
+        }
+
 
         /* Main Styles */
         main {
@@ -90,7 +120,7 @@
 
 <body>
     <!-- Header Section -->
-    <header>
+    <!-- <header>
         <nav>
         <img src="logo.png" alt="">
 
@@ -99,6 +129,14 @@
                 <li><a href="/post">Post a Job</a></li>
             </ul>
         </nav>
+    </header> -->
+    <header>
+        <img src="logo.png" alt="">
+
+        <div class="auth-buttons">
+            <a href="/client-register"><button class="welcome">Welcome, name 👋</button></a>
+            <a href="/client-login"><button class="logout">Logout</button></a>
+        </div>
     </header>
     <main>
         <h1>Job Listings</h1>

@@ -1,104 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post A Job</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    }
 
-}
     body {
-  background-color: #f9f9f9;
-}
+      background-color: #f9f9f9;
+    }
 
-.container {
-  max-width: 500px;
-  margin: 50px auto;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
+    /* Header Section */
+    header {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-h1 {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3cb371;
+    }
 
-.subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
 
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
+    .auth-buttons button {
+      padding: 0.5rem 1rem;
+      border: 2px solid #3cb371;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
 
-input, select, textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
+    .auth-buttons .logout {
+      background-color: transparent;
+      color: #3cb371;
+    }
 
-textarea {
-  resize: none;
-}
+    .auth-buttons .welcome {
+      background-color: #3cb371;
+      color: white;
+    }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: #28a745;
-}
 
-.submit-btn {
-  background-color: #28a745;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
 
-.submit-btn:hover {
-  background-color: #218838;
-}
+    h1 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
 
-input[type="file"] {
-  border: none;
-  background: #f0f0f0;
-  padding: 10px;
-  cursor: pointer;
-}
+    .subtitle {
+      color: #666;
+      margin-bottom: 20px;
+    }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #28a745;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    input[type="file"] {
+      border: none;
+      background: #f0f0f0;
+      padding: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
+
 <body>
+  <header>
+    <img src="logo.png" alt="">
+
+    <div class="auth-buttons">
+      <a href="/client-register"><button class="welcome">Welcome, name 👋</button></a>
+      <a href="/client-login"><button class="logout">Logout</button></a>
+    </div>
+  </header>
+
   <div class="container">
-    <h1>Post A Job</h1>
+    <h1 style="margin-bottom: 10px;">Post A Job 🛠</h1>
     <p class="subtitle">
       You are one step away from connecting with top-skilled artisans for your needs. Make that move today!
     </p>
@@ -110,6 +174,16 @@ input[type="file"] {
           <option value="plumber">Plumber</option>
           <option value="electrician">Electrician</option>
           <option value="carpenter">Carpenter</option>
+          <option value="painter">Painter</option>
+          <option value="cleaner">Cleaner</option>
+          <option value="welder">Welder</option>
+          <option value="beautyspecialist">Beauty Specialist</option>
+          <option value="barber">Barber</option>
+          <option value="roofer">Roofer</option>
+          <option value="tiler">Tiler</option>
+          <option value="mason">Mason (Bricklayer)</option>
+          <option value="flooringinstaller">Flooring Installer</option>
+          <option value="landscaper">Landscaper</option>
         </select>
       </div>
       <div class="form-group">
@@ -123,7 +197,8 @@ input[type="file"] {
       </div>
       <div class="form-group">
         <label for="description">Job Description</label>
-        <textarea id="description" name="description" rows="4" placeholder="Describe the role, responsibilities, and requirements..."></textarea>
+        <textarea id="description" name="description" rows="4"
+          placeholder="Describe the role, responsibilities, and requirements..."></textarea>
       </div>
       <div class="form-group">
         <label for="address">Service Address</label>
@@ -131,7 +206,7 @@ input[type="file"] {
       </div>
       <div class="form-group">
         <label for="timeline">Timeline</label>
-        <input type="text" id="timeline" name="timeline">
+        <input type="date" id="timeline" name="timeline">
       </div>
       <div class="form-group">
         <label for="duration">Duration</label>
@@ -140,16 +215,21 @@ input[type="file"] {
           <option value="1-day">1 Day</option>
           <option value="2-days">2 Days</option>
           <option value="1-week">1 Week</option>
+          <option value="1-month">1 Month</option>
         </select>
       </div>
       <div class="form-group">
         <label for="budget">Budget</label>
         <select id="budget" name="budget">
           <option value="" disabled selected>Select</option>
-          <option value="low">Less than $100</option>
-          <option value="medium">$100 - $500</option>
-          <option value="high">More than $500</option>
+          <option value="low">Less than #10,000</option>
+          <option value="medium">#10,000 - #50,000</option>
+          <option value="high">More than #50,000</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label for="proof">Proof of Identity</label>
+        <input type="file" id="proof" name="proof" style="padding: 30px 120px; color: blue">
       </div>
 
       <div class="form-group">
@@ -166,66 +246,60 @@ input[type="file"] {
   <script>
     const form = document.getElementById('postJobForm');
 
-const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
+    const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const artisan = document.getElementById('artisan').value;
-  const service = document.getElementById('service').value;
-  const description = document.getElementById('description').value;
-  const address = document.getElementById('address').value;
-  const timeline = document.getElementById('timeline').value;
-  const duration = document.getElementById('duration').value;
-  const budget = document.getElementById('budget').value;
-  const fullName = document.getElementById('fullName').value;
-  const phoneNumber = document.getElementById('phoneNumber').value;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const artisan = document.getElementById('artisan').value;
+      const service = document.getElementById('service').value;
+      const description = document.getElementById('description').value;
+      const address = document.getElementById('address').value;
+      const timeline = document.getElementById('timeline').value;
+      const duration = document.getElementById('duration').value;
+      const budget = document.getElementById('budget').value;
+      const fullName = document.getElementById('fullName').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
 
-  try {
-    const response = await fetch('/post-job', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        artisan,
-        natureOfService: service,
-        jobDescription: description,
-        serviceAddress: address,
-        timeline,
-        duration,
-        budget,
-        fullName,
-        phoneNumber,
-      }),
+      try {
+        const response = await fetch('/post-job', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            artisan,
+            natureOfService: service,
+            jobDescription: description,
+            serviceAddress: address,
+            timeline,
+            duration,
+            budget,
+            fullName,
+            phoneNumber,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message);
+        } else {
+          console.error(data);
+          alert(data.message); // Display the actual error message
+        }
+      } catch (error) {
+        console.error(error);
+        if (error.message) {
+          alert(error.message); // Display the actual error message
+        } else {
+          alert('Error posting job');
+        }
+      }
+
     });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert(data.message);
-    } else {
-      console.error(data);
-      alert(data.message); // Display the actual error message
-    }
-  } catch (error) {
-    console.error(error);
-    if (error.message) {
-      alert(error.message); // Display the actual error message
-    } else {
-      alert('Error posting job');
-    }
-  }
-
-});
 
   </script>
 </body>
+
 </html>
-
-
-
-      <!-- <div class="form-group">
-        <label for="identity">Proof of Identity</label>
-        <input type="file" id="identity" name="identity">
-      </div> -->
