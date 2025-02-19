@@ -2,150 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Listings</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-
-        }
-
-        body {
-            background-color: #f9f9f9;
-        }
-
-        /* Header Section */
-        header {
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #3cb371;
-        }
-
-        nav {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .auth-buttons button {
-            padding: 0.5rem 1rem;
-            border: 2px solid #3cb371;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .auth-buttons .logout {
-            background-color: transparent;
-            color: #3cb371;
-        }
-
-        .auth-buttons .welcome {
-            background-color: #3cb371;
-            color: white;
-        }
-
-
-        /* Main Styles */
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .job-listings {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .job-listing {
-            background-color: #fff;
-            padding: 1rem;
-            margin: 10px;
-            width: 300px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .job-info {
-            margin-bottom: 20px;
-        }
-
-        .job-actions {
-            text-align: center;
-        }
-
-        .apply-btn {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .apply-btn:hover {
-            background-color: #218838;
-        }
-    </style>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Listings Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script
+        src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+        data-border-radius="small"></script>
 </head>
 
-<body>
-    <!-- Header Section -->
-    <!-- <header>
-        <nav>
-        <img src="logo.png" alt="">
-
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/post">Post a Job</a></li>
-            </ul>
-        </nav>
-    </header> -->
-    <header>
-        <img src="logo.png" alt="">
-
-        <div class="auth-buttons">
-            <a href="/client-register"><button class="welcome">Welcome, name 👋</button></a>
-            <a href="/client-login"><button class="logout">Logout</button></a>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="/logo.png" alt="Logo" class="h-8 w-auto" />
+                </div>
+                <div class="flex items-center space-x-8">
+                    <!-- <div class="relative">
+                        <button class="p-2 text-gray-400 hover:text-gray-500">
+                            <i class="far fa-bell text-xl"></i>
+                            <span class="absolute top-1 right-1 h-2 w-2 bg-custom rounded-full"></span>
+                        </button>
+                    </div> -->
+                    <div class="flex items-center space-x-3">
+                        <!-- <img src="" alt="Profile" class="h-8 w-8 rounded-full" /> -->
+                        <span class="text-sm font-medium text-gray-700">Welcome, John Smith 👋</span>
+                    </div>
+                    <a href="/"><button
+                            class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50">Logout</button></a>
+                </div>
+            </div>
         </div>
-    </header>
-    <main>
-        <h1>Job Listings</h1>
-        <div class="job-listings">
-            <!-- Job listings will be rendered here -->
+    </nav>
+    <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="w-full">
+
+            <div class="flex-1">
+                <div class="flex justify-center items-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-900">Job Listings</h1>
+                </div>
+                <div class="mb-6 flex justify-between items-center">
+                    <div class="flex gap-4 items-center">
+                        <div class="relative">
+                            <input type="text" placeholder="Search jobs..."
+                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-50 text-sm" />
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        <select class="rounded-md border-gray-300 text-sm">
+                            <option>Sort by: Newest</option>
+                            <option>Sort by: Budget</option>
+                            <option>Sort by: Duration</option>
+                        </select>
+                    </div>
+
+                    <button
+                        class="!rounded-button bg-green-600 text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90"><i
+                            class="fas fa-plus mr-2"></i>Post a Job</button>
+
+                </div>
+                <div id="job-listings" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+
+                </div>
+                <div class="mt-6 flex justify-center">
+                    <nav class="flex items-center gap-2">
+                        <button class="!rounded-button p-2 text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+                            disabled="">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="!rounded-button px-4 py-2 bg-custom text-white">1</button>
+                        <button class="!rounded-button px-4 py-2 text-gray-600 hover:bg-gray-100">2</button>
+                        <button class="!rounded-button px-4 py-2 text-gray-600 hover:bg-gray-100">3</button>
+                        <button class="!rounded-button p-2 text-gray-600 hover:bg-gray-100">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
         </div>
     </main>
     <script>
-        const jobListingsContainer = document.querySelector('.job-listings');
+        const jobListingsContainer = document.getElementById('job-listings');
 
         // Fetch job listings from API
         fetch('/view-jobs')
@@ -154,17 +95,50 @@
                 // Render job listings
                 data.forEach(job => {
                     const jobListingHTML = `
-                <div class="job-listing">
-                    <h2>Artisan: ${job.artisan}</h2>
-                    <p>Nature of Service: ${job.natureOfService}</p>
-                    <p>Job Description: ${job.jobDescription}</p>
-                    <p>Service Address: ${job.serviceAddress}</p>
-                    <p>Timeline: ${job.timeline}</p>
-                    <p>Duration: ${job.duration}</p>
-                    <p>Budget: $${job.budget}</p>
-                    <p>Posted by: ${job.fullName}</p>
-                    <p>Phone Number: ${job.phoneNumber}</p>
+                    
+                <div class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+    <div class="flex flex-col">
+        <div><img
+                src="/painters.png"
+                alt="Electrical Installation" class="w-full h-45 object-cover rounded-lg mb-3" />
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                        ${job.artisan}<i
+                            class="fas fa-check-circle text-green-600 text-sm"></i></h3>
+                    <p class="text-sm text-gray-500 mt-1">Posted by ${job.fullName}</p>
                 </div>
+                <div class="flex items-center gap-2"><button
+                        class="!rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-custom/90">Apply
+                        Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3 grid grid-cols-2 gap-3">
+        <div>
+            <p class="text-sm font-medium text-gray-500">Location</p>
+            <p class="text-sm text-gray-900">${job.serviceAddress}</p>
+        </div>
+        <div>
+            <p class="text-sm font-medium text-gray-500">Duration</p>
+            <p class="text-sm text-gray-900">${job.duration}</p>
+        </div>
+        <div>
+            <p class="text-sm font-medium text-gray-500">Budget</p>
+            <p class="text-sm text-gray-900">#${job.budget}</p>
+        </div>
+        <div>
+            <p class="text-sm font-medium text-gray-500">Phone</p>
+            <p class="text-sm text-gray-900">${job.phoneNumber}</p>
+        </div>
+    </div>
+    <div class="mt-4">
+        <p class="text-sm text-gray-700">${job.jobDescription}</p>
+    </div>
+    <div class="mt-4 flex flex-wrap gap-2">
+        <span class="px-2 py-1 bg-green-200 rounded-md text-xs text-gray-600">${job.natureOfService}</span>
+    </div>
+</div>
             `;
                     jobListingsContainer.insertAdjacentHTML('beforeend', jobListingHTML);
                 });

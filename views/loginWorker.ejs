@@ -35,33 +35,15 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            background-image: url('/formbg.png'); /* Replace with actual arrows background */
+            background-repeat: repeat;
+            background-position: center;
+            background-size: contain;
         }
+
 
         .left img {
             width: 280px;
-        }
-
-        .left h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .left p {
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://via.placeholder.com/300/00A550?text=Arrows'); /* Replace with actual arrows background */
-            background-repeat: repeat;
-            opacity: 0.1;
-            z-index: 1;
         }
 
         .left-content {
@@ -168,7 +150,6 @@
 <body>
     <div class="container">
         <div class="left">
-            <div class="background-pattern"></div>
             <div class="left-content">
                 <img src="logo_white.png" alt="Logo">
             </div>
@@ -188,7 +169,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <div class="checkbox">
-                        <input type="checkbox" id="remember">
+                        <input type="checkbox" id="remember" checked    >
                         <label for="remember">Keep me signed in</label>
                     </div>
                     <div class="actions">
