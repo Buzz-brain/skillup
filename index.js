@@ -63,7 +63,8 @@ const jobSchema = new mongoose.Schema({
     duration: String,
     budget: String,
     fullName: String,
-    phoneNumber: String
+    phoneNumber: String,
+    imageUrl: String
 });
 
 
@@ -171,8 +172,6 @@ app.post('/login-client', async (req, res) => {
 
 // Post job
 app.post('/post-job', verifyToken, authorizeClient, async (req, res) => {
-console.log(req.body)
-
     try {
       const { artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber, imageUrl  } = req.body;
       if(!artisan || !natureOfService || !jobDescription || !serviceAddress || !timeline || !duration || !budget || !fullName || !phoneNumber || !imageUrl) {
