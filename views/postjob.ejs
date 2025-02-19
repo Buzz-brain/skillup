@@ -228,8 +228,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="proof">Proof of Identity</label>
-        <input type="file" id="proof" name="proof" style="padding: 30px 120px; color: blue;">
+        <label for="Image">Job Image</label>
+        <input type="file" id="Image" name="Image" style="padding: 30px 120px; color: blue;">
       </div>
 
       <div class="form-group">
@@ -247,6 +247,9 @@
     const form = document.getElementById('postJobForm');
 
     const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
+    const cloudName = 'your-cloud-name';
+    const uploadPreset = 'your-upload-preset';
+
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -254,48 +257,78 @@
       const service = document.getElementById('service').value;
       const description = document.getElementById('description').value;
       const address = document.getElementById('address').value;
-      const timeline = document.getElementById('timeline').value;
       const duration = document.getElementById('duration').value;
       const budget = document.getElementById('budget').value;
       const fullName = document.getElementById('fullName').value;
       const phoneNumber = document.getElementById('phoneNumber').value;
+      const image = document.getElementById('image').files[0];
 
+      const formData = new FormData();
+      formData.append('file', image);
+      formData.append('upload_preset', uploadPreset);
       try {
-        const response = await fetch('/post-job', {
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            artisan,
-            natureOfService: service,
-            jobDescription: description,
-            serviceAddress: address,
-            timeline,
-            duration,
-            budget,
-            fullName,
-            phoneNumber,
-          }),
+          body: formData,
         });
 
         const data = await response.json();
 
         if (response.ok) {
-          alert(data.message);
+          const imageUrl = data.secure_url;
+
+          const jobData = {
+            artisan,
+            natureOfService: service,
+            jobDescription: description,
+            serviceAddress: address,
+            duration,
+            budget,
+            fullName,
+            phoneNumber,
+            imageUrl,
+          };
+
+          try {
+            const response = await fetch('/post-job', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+              },
+              body: JSON.stringify(jobData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              alert(data.message);
+            } else {
+              console.error(data);
+              alert(data.message);
+            }
+          } catch (error) {
+            console.error(error);
+            if (error.message) {
+              alert(error.message);
+            } else {
+              alert('Error posting job');
+            }
+          }
         } else {
           console.error(data);
-          alert(data.message); // Display the actual error message
+          alert(data.error.message);
         }
       } catch (error) {
         console.error(error);
         if (error.message) {
-          alert(error.message); // Display the actual error message
+          alert(error.message);
         } else {
-          alert('Error posting job');
+          alert('Error uploading image');
         }
       }
+
+
 
     });
 

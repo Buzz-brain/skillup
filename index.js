@@ -174,8 +174,11 @@ app.post('/post-job', verifyToken, authorizeClient, async (req, res) => {
 console.log(req.body)
 
     try {
-      const { artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber } = req.body;
-      const job = new Job({ artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber });
+      const { artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber, imageUrl  } = req.body;
+      if(!artisan || !natureOfService || !jobDescription || !serviceAddress || !timeline || !duration || !budget || !fullName || !phoneNumber || !imageUrl) {
+        res.status(400).json({ message: 'All Fields are required' });
+      }
+      const job = new Job({ artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber, imageUrl });
       await job.save();
       res.json({ message: 'Job posted successfully' });
     } catch (error) {
