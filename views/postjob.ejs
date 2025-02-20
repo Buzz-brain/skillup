@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post A Job</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+  <script
+    src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+  <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+    data-border-radius="small"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -16,62 +23,10 @@
 
     }
 
-    body {
-      background-color: #f9f9f9;
-    }
-
-    /* Header Section */
-    header {
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #3cb371;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .auth-buttons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .auth-buttons button {
-      padding: 0.5rem 1rem;
-      border: 2px solid #3cb371;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .auth-buttons .logout {
-      background-color: transparent;
-      color: #3cb371;
-    }
-
-    .auth-buttons .welcome {
-      background-color: #3cb371;
-      color: white;
-    }
 
 
-    .container {
+
+    .contain {
       max-width: 500px;
       margin: 50px auto;
       background: #fff;
@@ -151,103 +106,140 @@
   </style>
 </head>
 
-<body>
-  <header>
-    <img src="logo.png" alt="">
+<body class="bg-gray-50 min-h-screen">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/post" style="cursor: pointer;"><img src="/logo.png" alt="Logo" class="h-8 w-auto" /></a>
+        </div>
+        <div class="flex items-center space-x-8">
+          <!-- <div class="relative">
+                    <button class="p-2 text-gray-400 hover:text-gray-500">
+                        <i class="far fa-bell text-xl"></i>
+                        <span class="absolute top-1 right-1 h-2 w-2 bg-custom rounded-full"></span>
+                    </button>
+                </div> -->
+          <div class="flex items-center space-x-3">
+            <!-- <img src="" alt="Profile" class="h-8 w-8 rounded-full" /> -->
+            <span id="welcome-message" class="text-sm font-medium text-gray-700"></span>
 
-    <div class="auth-buttons">
-      <a href="/client-register"><button class="welcome">Welcome, name 👋</button></a>
-      <a href="/client-login"><button class="logout">Logout</button></a>
+          </div>
+          <button id="logout-btn"
+            class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50">Logout</button>
+        </div>
+      </div>
     </div>
-  </header>
+  </nav>
+  <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="w-full">
+      <div class="flex-1">
+        <div class="flex justify-center items-center mb-6">
+          <h1 class="text-2xl font-bold text-gray-900">Post A Job 🛠</h1>
 
-  <div class="container">
-    <h1 style="margin-bottom: 10px;">Post A Job 🛠</h1>
-    <p class="subtitle">
-      You are one step away from connecting with top-skilled artisans for your needs. Make that move today!
-    </p>
-    <form id="postJobForm">
-      <div class="form-group">
-        <label for="artisan">Choose an Artisan</label>
-        <select id="artisan" name="artisan">
-          <option value="" disabled selected>Select</option>
-          <option value="plumber">Plumber</option>
-          <option value="electrician">Electrician</option>
-          <option value="carpenter">Carpenter</option>
-          <option value="painter">Painter</option>
-          <option value="cleaner">Cleaner</option>
-          <option value="welder">Welder</option>
-          <option value="beautyspecialist">Beauty Specialist</option>
-          <option value="barber">Barber</option>
-          <option value="roofer">Roofer</option>
-          <option value="tiler">Tiler</option>
-          <option value="mason">Mason (Bricklayer)</option>
-          <option value="flooringinstaller">Flooring Installer</option>
-          <option value="landscaper">Landscaper</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="service">Nature of Service</label>
-        <select id="service" name="service">
-          <option value="" disabled selected>Select</option>
-          <option value="repair">Repair</option>
-          <option value="installation">Installation</option>
-          <option value="maintenance">Maintenance</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="description">Job Description</label>
-        <textarea id="description" name="description" rows="4"
-          placeholder="Describe the role, responsibilities, and requirements..."></textarea>
-      </div>
-      <div class="form-group">
-        <label for="address">Service Address</label>
-        <input type="text" id="address" name="address" placeholder="Enter Address">
-      </div>
-      <div class="form-group">
-        <label for="timeline">Timeline</label>
-        <input type="date" id="timeline" name="timeline">
-      </div>
-      <div class="form-group">
-        <label for="duration">Duration</label>
-        <select id="duration" name="duration">
-          <option value="" disabled selected>Select</option>
-          <option value="1-day">1 Day</option>
-          <option value="2-days">2 Days</option>
-          <option value="1-week">1 Week</option>
-          <option value="1-month">1 Month</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="budget">Budget</label>
-        <select id="budget" name="budget">
-          <option value="" disabled selected>Select</option>
-          <option value="low">Less than #10,000</option>
-          <option value="medium">#10,000 - #50,000</option>
-          <option value="high">More than #50,000</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="image">Job Image</label>
-        <input type="file" id="image" name="image" style="padding: 30px 120px; color: blue;">
-      </div>
+        </div>
+        <div class="mb-6 flex justify-end items-center">
 
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name">
+          <a href="/dashboard"><button
+              class="!rounded-button bg-green-600 text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90">
+              &lt; Back</button></a>
+
+        </div>
+
+
+        <div class="contain">
+          <p class="subtitle">
+            You are one step away from connecting with top-skilled artisans for your needs. Make that move today!
+          </p>
+          <form id="postJobForm">
+            <div class="form-group">
+              <label for="artisan">Choose an Artisan</label>
+              <select id="artisan" name="artisan">
+                <option value="" disabled selected>Select</option>
+                <option value="plumber">Plumber</option>
+                <option value="electrician">Electrician</option>
+                <option value="carpenter">Carpenter</option>
+                <option value="painter">Painter</option>
+                <option value="cleaner">Cleaner</option>
+                <option value="welder">Welder</option>
+                <option value="beautyspecialist">Beauty Specialist</option>
+                <option value="barber">Barber</option>
+                <option value="roofer">Roofer</option>
+                <option value="tiler">Tiler</option>
+                <option value="mason">Mason (Bricklayer)</option>
+                <option value="flooringinstaller">Flooring Installer</option>
+                <option value="landscaper">Landscaper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="service">Nature of Service</label>
+              <select id="service" name="service">
+                <option value="" disabled selected>Select</option>
+                <option value="repair">Repair</option>
+                <option value="installation">Installation</option>
+                <option value="maintenance">Maintenance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Job Description</label>
+              <textarea id="description" name="description" rows="4"
+                placeholder="Describe the role, responsibilities, and requirements..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="address">Service Address</label>
+              <input type="text" id="address" name="address" placeholder="Enter Address">
+            </div>
+            <div class="form-group">
+              <label for="duration">Duration</label>
+              <select id="duration" name="duration">
+                <option value="" disabled selected>Select</option>
+                <option value="1-day">1 Day</option>
+                <option value="2-days">2 Days</option>
+                <option value="1-week">1 Week</option>
+                <option value="1-month">1 Month</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select</option>
+                <option value="Less than #10,000">Less than #10,000</option>
+                <option value="#10,000 - #50,000">#10,000 - #50,000</option>
+                <option value="More than #50,000">More than #50,000</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="image">Job Image</label>
+              <input type="file" id="image" name="image" style="padding: 30px 120px; color: blue;">
+            </div>
+
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name">
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+
       </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
-      </div>
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-  </div>
+    </div>
+  </main>
+
+
+
   <script>
     const form = document.getElementById('postJobForm');
     const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
     const uploadPreset = 'upload_preset'; // Replace with your upload preset
     const cloudName = 'df2q6gyuq'; // Replace with your cloud name
+
+    if (!token) {
+      window.location.replace('/client-login');
+    }
 
 
     form.addEventListener('submit', async (e) => {
@@ -287,7 +279,7 @@
             phoneNumber,
             imageUrl,
           };
-
+          console.log(jobData)
           try {
             const response = await fetch('/post-job', {
               method: 'POST',
@@ -302,6 +294,7 @@
 
             if (response.ok) {
               alert(data.message);
+              window.location.replace('/dashboard')
             } else {
               console.error(data);
               alert(data.message);
@@ -328,6 +321,35 @@
       }
     });
 
+
+    fetch('/user-details', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          window.location.replace('/client-login');
+        }
+        return response.json();
+      })
+
+      .then(data => {
+        if (data.role !== 'client') {
+    window.location.replace('/dashboard'); // or any other page you want to redirect to
+  }
+
+        const welcomeMessageElement = document.getElementById('welcome-message');
+        welcomeMessageElement.textContent = `Welcome,  ${data.lastName} 👋`;
+      })
+      .catch(error => console.error('Error fetching user details:', error));
+
+    const logoutBtn = document.getElementById('logout-btn');
+
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('token');
+      window.location.replace('/client-login');
+    });
   </script>
 </body>
 

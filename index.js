@@ -59,7 +59,6 @@ const jobSchema = new mongoose.Schema({
     natureOfService: String,
     jobDescription: String,
     serviceAddress: String,
-    timeline: String,
     duration: String,
     budget: String,
     fullName: String,
@@ -83,7 +82,6 @@ const verifyToken = async (req, res, next) => {
     try {
       const decoded = jwt.verify(token, 'secretkey');
       req.user = decoded;
-      console.log(req.user)
       next();
     } catch (error) {
       res.status(400).json({ message: 'Invalid token.' });
@@ -173,11 +171,12 @@ app.post('/login-client', async (req, res) => {
 // Post job
 app.post('/post-job', verifyToken, authorizeClient, async (req, res) => {
     try {
-      const { artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber, imageUrl  } = req.body;
-      if(!artisan || !natureOfService || !jobDescription || !serviceAddress || !timeline || !duration || !budget || !fullName || !phoneNumber || !imageUrl) {
-        res.status(400).json({ message: 'All Fields are required' });
+      const { artisan, natureOfService, jobDescription, serviceAddress, duration, budget, fullName, phoneNumber, imageUrl  } = req.body;
+      console.log(req.body)
+      if(!artisan || !natureOfService || !jobDescription || !serviceAddress || !duration || !budget || !fullName || !phoneNumber || !imageUrl) {
+        return res.status(400).json({ message: 'All Fields are required' });
       }
-      const job = new Job({ artisan, natureOfService, jobDescription, serviceAddress, timeline, duration, budget, fullName, phoneNumber, imageUrl });
+      const job = new Job({ artisan, natureOfService, jobDescription, serviceAddress, duration, budget, fullName, phoneNumber, imageUrl });
       await job.save();
       res.json({ message: 'Job posted successfully' });
     } catch (error) {
@@ -195,6 +194,41 @@ app.get('/view-jobs', async (req, res) => {
       res.status(400).json({ message: 'Error fetching jobs' });
     }
   });
+
+// Delete all jobs
+app.delete('/delete-all-jobs', async (req, res) => {
+  try {
+    await Job.deleteMany();
+    res.json({ message: 'All jobs deleted successfully' });
+  } catch (error) {
+    res.status(400).json({ message: 'Error deleting jobs' });
+  }
+});
+
+// Get user details
+app.get('/user-details', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    console.log(userId)
+    let user;
+
+    if (req.user.role === 'client') {
+      user = await Client.findById(userId);
+    } else if (req.user.role === 'skilledWorker') {
+      user = await SkilledWorker.findById(userId);
+    }
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    res.status(400).json({ message: 'Error fetching user details' });
+  }
+});
+
+
 
 app.listen(3000, () => {
     console.log('Server listening on port 3000');

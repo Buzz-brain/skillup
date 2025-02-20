@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -34,7 +36,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background-image: url('/formbg.png'); /* Replace with actual arrows background */
+            background-image: url('/formbg.png');
+            /* Replace with actual arrows background */
             background-repeat: repeat;
             background-position: center;
             background-size: contain;
@@ -53,7 +56,7 @@
             flex: 1;
             padding: 50px;
             display: flex;
-            width:100%;
+            width: 100%;
             flex-direction: column;
             justify-content: center;
         }
@@ -145,6 +148,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="left">
@@ -152,7 +156,7 @@
                 <img src="logo_white.png" alt="Logo">
             </div>
         </div>
-        
+
         <div class="right">
             <h2>Login to your Account</h2>
             <p>Kindly fill in login details to continue as our client.</p>
@@ -175,7 +179,7 @@
                     </div>
                 </div>
                 <button class="btn">Log In</button>
-                </form>
+            </form>
             <div class="footer">
                 <p>Don’t have an Account? <a href="/client-register">Create an account</a></p>
             </div>
@@ -200,18 +204,19 @@
                     password
                 })
             })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.token) {
-                    localStorage.setItem('token', data.token);
-                    window.location.href = '/dashboard';
-                } else {
-                    alert('Invalid email or password');
-                }
-            })
-            .catch((error) => console.error(error));
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.token) {
+                        localStorage.setItem('token', data.token);
+                        window.location.replace('/dashboard')
+                    } else {
+                        alert('Invalid email or password');
+                    }
+                })
+                .catch((error) => console.error(error));
         });
     </script>
 
 </body>
+
 </html>

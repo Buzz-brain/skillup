@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skilz - Home Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
-    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#4F46E5" data-border-radius='small'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <script
+        src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#4F46E5"
+        data-border-radius='small'></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -136,11 +140,11 @@
 
 <body>
     <header>
-        <img src="logo.png" alt="">
+        <a href="/" style="cursor: pointer;"><img src="logo.png" alt=""></a>
         <nav>
-            <a href="#" style="color:#3cb371;">Home</a>
-            <a href="#">Resources</a>
-            <a href="#">About</a>
+            <a href="/" style="color:#3cb371;">Home</a>
+            <a href="#resources">Resources</a>
+            <a href="#about">About</a>
         </nav>
         <div class="auth-buttons">
             <a href="/client-login"><button class="login">Login</button></a>
@@ -153,14 +157,16 @@
             <h1>Home service has never <br>been more convenient.</h1>
             <p>Offering comprehensive home service solutions, delivered <br> right to your doorstep.</p>
             <div class="hero-buttons">
-                <a href="/worker-login"><button style="background-color: transparent; border: 1px solid white">I am a skilled worker</button></a>
-                <a href="/client-login"><button style="background-color: white; border: 1px solid white; color: green">I want to hire a skilled worker</button></a>
+                <a href="/worker-login"><button style="background-color: transparent; border: 1px solid white">I am a
+                        skilled worker</button></a>
+                <a href="/client-login"><button style="background-color: white; border: 1px solid white; color: green">I
+                        want to hire a skilled worker</button></a>
             </div>
         </div>
     </section>
 
     <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="text-center mb-8 mt-12">
+        <div class="text-center mb-8 mt-12" id="services">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
             <p class="text-gray-600">What we have to offer</p>
         </div>
@@ -171,7 +177,8 @@
                     <i class="fas fa-home text-green-600"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Home Services</h3>
-                <p class="text-gray-600"> Easily find local Skilled workers around you and enjoy their services at the comfort of your home.</p>
+                <p class="text-gray-600"> Easily find local Skilled workers around you and enjoy their services at the
+                    comfort of your home.</p>
             </div>
 
             <div class="bg-green-50 p-8 rounded-lg border border-gray-200 text-center">
@@ -179,7 +186,8 @@
                     <i class="fas fa-users text-blue-600"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Artisan Centre & Craftsman Hub</h3>
-                <p class="text-gray-600">We advertise skilled Hand-workers, craftsman and Artisans whereby connecting them with potential customers.</p>
+                <p class="text-gray-600">We advertise skilled Hand-workers, craftsman and Artisans whereby connecting
+                    them with potential customers.</p>
             </div>
 
             <div class="bg-green-50 p-8 rounded-lg border border-gray-200 text-center">
@@ -187,15 +195,23 @@
                     <i class="fas fa-store text-purple-600"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Fair Trade Marketplace</h3>
-                <p class="text-gray-600">Bridging Artisans and Customers  with Fixed Budget-Friendly Services</p>
+                <p class="text-gray-600">Bridging Artisans and Customers with Fixed Budget-Friendly Services</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             <div class="bg-white p-8 rounded-lg border border-gray-200">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Reliant, Fast, Efficient.</h2>
-                <p class="text-gray-600 mb-6">At Skill up we offer a trustworthy, fast, and efficient platform for connecting with skilled artisans and craftsmen, carefully vetting each professional to ensure they meet high standards of quality, skill, and reliability, with customer reviews and secure payment systems for added peace of mind; our user-friendly interface allows for quick service bookings, real-time availability, and instant confirmations, eliminating delays, while automated scheduling, direct communication, and transparent pricing streamline the entire process, ensuring you receive the right expert for your needs without hassle, making it the go-to platform for quality craftsmanship delivered swiftly and safely.</p>
-                <button class="!rounded-button bg-green-500 text-white px-6 py-3 font-medium">I want to hire a skilled worker</button>
+                <p class="text-gray-600 mb-6">At Skill up we offer a trustworthy, fast, and efficient platform for
+                    connecting with skilled artisans and craftsmen, carefully vetting each professional to ensure they
+                    meet high standards of quality, skill, and reliability, with customer reviews and secure payment
+                    systems for added peace of mind; our user-friendly interface allows for quick service bookings,
+                    real-time availability, and instant confirmations, eliminating delays, while automated scheduling,
+                    direct communication, and transparent pricing streamline the entire process, ensuring you receive
+                    the right expert for your needs without hassle, making it the go-to platform for quality
+                    craftsmanship delivered swiftly and safely.</p>
+                <a href="/client-login"><button class="!rounded-button bg-green-500 text-white px-6 py-3 font-medium">I
+                        want to hire a skilled worker</button></a>
             </div>
             <div class="rounded-lg overflow-hidden">
                 <div class="rounded-lg overflow-hidden"> <img src="/picone.png" alt=""> </div>
@@ -207,13 +223,19 @@
             <div class="rounded-lg overflow-hidden"> <img src="/pictwo.png" alt=""> </div>
             <div class="bg-white p-8 rounded-lg border border-gray-200">
                 <h2 class="text-2xl font-bold text-gray-900 mb-5">Earn as a skilled worker</h2>
-                <p class="text-gray-600 mb-12">You can showcase your skills and services on our platform to gain more visibility, attract higher-paying clients, and secure more jobs. Enjoy free access to valuable resources, including discounted tools and insurance options. This is your chance earn a steady income by offering your services. Registration is simple and can be done from the comfort of your home.</p> <button
-                    class="!rounded-button bg-white-500 text-green-500 border border-green-500 px-6 py-3 font-medium">I am a skilled worker</button>
+                <p class="text-gray-600 mb-12">You can showcase your skills and services on our platform to gain more
+                    visibility, attract higher-paying clients, and secure more jobs. Enjoy free access to valuable
+                    resources, including discounted tools and insurance options. This is your chance earn a steady
+                    income by offering your services. Registration is simple and can be done from the comfort of your
+                    home.</p>
+                <a href="/worker-login"><button
+                        class="!rounded-button bg-white-500 text-green-500 border border-green-500 px-6 py-3 font-medium">I
+                        am a skilled worker</button></a>
             </div>
         </div>
 
         <div class="text-center mb-8 mt-20">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Skilled Workforce</h2>
+            <h2 id="resources" class="text-3xl font-bold text-gray-900 mb-4">Our Skilled Workforce</h2>
             <p class="text-gray-600">Various skilled works we offer</p>
         </div>
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 mb-16">
@@ -225,55 +247,68 @@
             <div class="rounded-lg overflow-hidden"> <img src="/personalbeauty.png" alt=""> </div>
         </div>
 
-        
-    <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Testimonials</h2>
-        <p class="text-gray-600">Why our customers trust us</p>
-    </div>
+
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Testimonials</h2>
+            <p class="text-gray-600">Why our customers trust us</p>
+        </div>
 
 
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-16 px-20">
-        <div class="p-8 bg-green-50 rounded-lg text-center">
-            <div class="flex gap-8 mb-10">
-                <img src="/test1.png" class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"  alt="">
-                <p class="text-gray-600 text-left"> "Being on Skill Up has made it easy to showcase my skills and get steady work."</p>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-16 px-20">
+            <div class="p-8 bg-green-50 rounded-lg text-center">
+                <div class="flex gap-8 mb-10">
+                    <img src="/test1.png"
+                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                        alt="">
+                    <p class="text-gray-600 text-left"> "Being on Skill Up has made it easy to showcase my skills and
+                        get steady work."</p>
+                </div>
+                <p class="text-green-500 text-right">~ Amadi Chisom</p>
             </div>
-            <p class="text-green-500 text-right">~ Amadi Chisom</p>
-        </div>
-        <div class="p-8 bg-green-50 rounded-lg text-center">
-            <div class="flex gap-8 mb-10">
-                <img src="/test2.png" class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"  alt="">
-                <p class="text-gray-600 text-left"> "I needed a quick fix for my roof, and Skill Up came through with a reliable roofer. Highly satisfied!"</p>
+            <div class="p-8 bg-green-50 rounded-lg text-center">
+                <div class="flex gap-8 mb-10">
+                    <img src="/test2.png"
+                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                        alt="">
+                    <p class="text-gray-600 text-left"> "I needed a quick fix for my roof, and Skill Up came through
+                        with a reliable roofer. Highly satisfied!"</p>
+                </div>
+                <p class="text-green-500 text-right">~ John Francis</p>
             </div>
-            <p class="text-green-500 text-right">~ John Francis</p>
         </div>
-    </div>
 
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-16 px-20">
-        <div class="p-8 bg-green-50 rounded-lg text-center">
-            <div class="flex gap-8 mb-10">
-                <img src="/test3.png" class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"  alt="">
-                <p class="text-gray-600 text-left"> "The beauty professionals on Skill Up are top-notch. I had the best spa experience at home!"</p>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-16 px-20">
+            <div class="p-8 bg-green-50 rounded-lg text-center">
+                <div class="flex gap-8 mb-10">
+                    <img src="/test3.png"
+                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                        alt="">
+                    <p class="text-gray-600 text-left"> "The beauty professionals on Skill Up are top-notch. I had the
+                        best spa experience at home!"</p>
+                </div>
+                <p class="text-green-500 text-right">~ Anuforo Esther</p>
             </div>
-            <p class="text-green-500 text-right">~ Anuforo Esther</p>
-        </div>
-        <div class="p-8 bg-green-50 rounded-lg text-center">
-            <div class="flex gap-8 mb-10">
-                <img src="/test4.png" class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"  alt="">
-                <p class="text-gray-600 text-left"> "Skill Up’s platform is so user-friendly. I found a great barber who gave me the perfect cut!"</p>
+            <div class="p-8 bg-green-50 rounded-lg text-center">
+                <div class="flex gap-8 mb-10">
+                    <img src="/test4.png"
+                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                        alt="">
+                    <p class="text-gray-600 text-left"> "Skill Up’s platform is so user-friendly. I found a great barber
+                        who gave me the perfect cut!"</p>
+                </div>
+                <p class="text-green-500 text-right">~ Emeka Chika</p>
             </div>
-            <p class="text-green-500 text-right">~ Emeka Chika</p>
         </div>
-    </div>
 
- 
+
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="overflow-hidden" style="background-color: #3cb371; color: #fff; display: flex; align-items: center ; place-content: center;">
+    <div id="about" class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="overflow-hidden"
+            style="background-color: #3cb371; color: #fff; display: flex; align-items: center ; place-content: center;">
             <div style="width: 500px">
                 <p style="font-size: 2rem; margin-bottom: 10px;">Want to know more about our services?</p>
-            <p style="margin-bottom: 20px;">Subscribe for Updates</p>
-            <input type="email" placeholder="Email Address" style="width:100%; display: block;">
+                <p style="margin-bottom: 20px;">Subscribe for Updates</p>
+                <input type="email" placeholder="Email Address" style="width:100%; display: block; color: black">
             </div>
         </div>
         <div class="overflow-hidden"> <img src="/wanttoknow.png" alt=""> </div>
@@ -284,38 +319,43 @@
         <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <img src="logo.png" alt="">
+                    <a href="/" style="cursor: pointer;"><img src="logo.png" alt=""></a>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-900 mb-4">Resources</h3>
+                    <a href="#resources">
+                        <h3 class="font-semibold text-gray-900 mb-4">Resources</h3>
+                    </a>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">FAQs</a></li>
+                        <li><a href="/" class="text-gray-600 hover:text-gray-900 text-sm">FAQs</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-900 mb-4">Services</h3>
+                    <a href="#services">
+                        <h3 class="font-semibold text-gray-900 mb-4">Services</h3>
+                    </a>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Contact Us</a></li>
+                        <li><a href="#about" class="text-gray-600 hover:text-gray-900 text-sm">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-900 mb-4">About Us</h3>
+                    <a href="#about">
+                        <h3 class="font-semibold text-gray-900 mb-4">About Us</h3>
+                    </a>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Register</a></li>
+                        <li><a href="/client-register" class="text-gray-600 hover:text-gray-900 text-sm">Register</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-200">
-                <p class="text-gray-600 text-sm text-center mb-6">Skill Up is a company that connects clients with skilled artisans and craftsmen, providing trusted and <br>efficient services to meet their needs with ease.</p>
-                <p class="text-gray-600 text-sm text-center">Copyright © 2025 Skill Up Service Marketplace All rights reserved</p>
+                <p class="text-gray-600 text-sm text-center mb-6">Skill Up is a company that connects clients with
+                    skilled artisans and craftsmen, providing trusted and <br>efficient services to meet their needs
+                    with ease.</p>
+                <p class="text-gray-600 text-sm text-center">Copyright © 2025 Skill Up Service Marketplace All rights
+                    reserved</p>
             </div>
         </div>
     </footer>
 </body>
 
 </html>
-
-
-
-
-
