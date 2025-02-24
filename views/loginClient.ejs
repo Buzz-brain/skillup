@@ -146,6 +146,40 @@
             text-decoration: none;
             color: rgb(68, 68, 250);
         }
+        .right img {
+            display: none;
+        }
+
+            /* Responsive Design */
+
+            @media (max-width: 768px) {
+                .left {
+                    display: none;
+                }
+                .right {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+            .right h2 {
+                font-size: 1.8rem;
+            }
+            .right h2, .right p {
+                text-align: center;
+            }
+            .right img {
+            display: block;
+            margin-bottom: 25px;
+            width: 250px;
+            }
+            form {
+            width: 100%;
+        }
+        }
+           
+        
+
     </style>
 </head>
 
@@ -158,6 +192,7 @@
         </div>
 
         <div class="right">
+            <img src="logo.png" alt="Logo">
             <h2>Login to your Account</h2>
             <p>Kindly fill in login details to continue as our client.</p>
             <form id="login-form">

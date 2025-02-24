@@ -15,7 +15,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
-
         }
         .left {
             flex: 1;
@@ -34,6 +33,47 @@
         .left img {
             width: 280px;
         }
+        img.logoo {
+            display: none;
+        }
+        .tabs {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+                .left {
+                    display: none;
+                }
+                #right {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+            .right {
+                width: 100%;
+                padding: 20px;
+                display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+        
+            .right p {
+                text-align: center;
+            }
+            .right .logoo {
+            display: block;
+            margin-bottom: 25px;
+            width: 250px;
+            }
+            form {
+            width: 100%;
+        } 
+        .tabs {
+            flex-direction: column;
+        }
+        }
+           
 
     </style>
 </head>
@@ -47,20 +87,38 @@
     </div>
 
     <!-- Right Side -->
-    <div class="w-1/2 flex justify-center items-center bg-white-100" style="padding-top: 70px; padding-bottom: 70px">
-        <div class="w-3/4">
-            <h2 class="text-3xl font-bold mb-6">Create Account</h2>
+    <div class="sm:w-1/2 flex justify-center items-center bg-white-100" style="padding-top: 70px; padding-bottom: 70px">
+        <div class="right w-3/4 ">
+            <img class="logoo" src="logo.png" alt="Logo">
+
+            <h2 class="text-3xl font-bold mb-2">Create Account</h2>
             <p class="text-gray-600 mb-4">Fill in personal information to continue registration.</p>
 
             <!-- Tabs -->
-            <div class="flex mb-6">
+            <!-- <div class="flex mb-6">
                 <a href="/client-register"><button
                         class=" py-3 px-5 bg-green-500 border flex border-gray-300 text-white rounded focus:outline-none"><img style="height:20px; margin-right: 5px;" src="user_white.png" alt="">Register as a
                         Client</button></a>
                 <a href="/worker-register"><button
-                        class=" py-3 px-5 bg-white border flex border-gray-300 text-green-600 rounded focus:outline-none"><img style="height:20px; margin-right: 5px;" src="user_green  .png" alt=""> Register as a Skilled
+                        class=" py-3 px-5 bg-white border flex border-gray-300 text-green-600 rounded focus:outline-none"><img style="height:20px; margin-right: 5px;" src="user_green.png" alt=""> Register as a Skilled
                         Worker</button></a>
+            </div> -->
+            <!-- Tabs -->
+            <div class="tabs w-full mb-6" style="width:100%">
+                <a href="/client-register">
+                    <div 
+                        class="py-3 px-5 bg-green-500 flex h-50 justify-center align-center border border-gray-300 text-white rounded focus:outline-none">
+                        <img style="height: 20px; width: 20px; margin-right: 5px;" src="user_white.png" alt=""> Register as a
+                        Client</div></a>
+                <a href="/worker-register">
+                    <div
+                        class=" py-3 px-5 bg-white flex h-50 justify-center align-center border border-gray-300 text-green-600 rounded focus:outline-none">
+                        <img style="height:20px; width: 20px; margin-right: 5px;" src="user_green.png" alt="">
+                        <p> Register as a Skilled
+                        Worker</p></div></a>
             </div>
+
+            
 
             <!-- Form -->
             <form id="register-form">
@@ -147,7 +205,6 @@
 
         });
 
-    </script>
     </script>
 </body>
 
