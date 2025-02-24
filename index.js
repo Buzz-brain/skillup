@@ -27,7 +27,7 @@ app.get('/client-register', (req, res) => {
     res.render('registerClient');
   });
 app.get('/post', (req, res) => {
-    res.render('postJob');
+    res.render('postjob');
   });
 app.get('/dashboard', (req, res) => {
     res.render('dashboard');
