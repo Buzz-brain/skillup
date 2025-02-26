@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post A Job</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script
+        src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+        data-border-radius="small"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+
+
+
+        .contain {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        input[type="file"] {
+            border: none;
+            background: #f0f0f0;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/post" style="cursor: pointer;"><img src="/logo.png" alt="Logo" class="h-8 w-auto" /></a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <!-- <img class="profilepic" src="" alt="Profile" class="h-8 w-8 rounded-full" /> -->
+                        <span id="welcome-message" class="text-sm font-medium text-gray-700"></span>
+
+                    </div>
+                    <button id="logout-btn"
+                        class="!rounded-button bg-white text-gray-700 border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="w-full">
+            <div class="flex-1">
+                <div class="flex justify-center items-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-900">Post A Skill 🛠</h1>
+
+                </div>
+                <div class="mb-6 flex justify-end items-center">
+
+                    <a href="/dashboard"><button
+                            class="!rounded-button bg-green-600 text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90">
+                            &lt; Back</button></a>
+
+                </div>
+
+
+                <div class="contain">
+                    <p class="subtitle">
+                        You are one step away from connecting with top clients for deals. Make that move today!
+                    </p>
+                    <form id="postSkillForm">
+                        <div class="form-group">
+                            <label for="profilepic">Profile pic</label>
+                            <input type="file" id="profilepic" name="profilepic"
+                                style="padding: 30px 30px; color: blue;">
+                        </div>
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" name="businessName"
+                                placeholder="Enter Your Business Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="skillName">Choose your skill</label>
+                            <select id="skillName" name="skillName">
+                                <option value="" disabled selected>Select</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="carpenter">Carpenter</option>
+                                <option value="painter">Painter</option>
+                                <option value="cleaner">Cleaner</option>
+                                <option value="welder">Welder</option>
+                                <option value="beautyspecialist">Beauty Specialist</option>
+                                <option value="barber">Barber</option>
+                                <option value="roofer">Roofer</option>
+                                <option value="tiler">Tiler</option>
+                                <option value="mason">Mason (Bricklayer)</option>
+                                <option value="flooringinstaller">Flooring Installer</option>
+                                <option value="landscaper">Landscaper</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="4"
+                                placeholder="Describe the services you offer.."></textarea>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="phoneNumber" placeholder="Enter Your Location">
+                        </div>
+                        <div class="form-group">
+                            <label for="certifications">Certifications</label>
+                            <input type="text" id="certifications" name="certifications"
+                                placeholder="Enter Your Certifications e.g Certified Plumber, Master Plumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Experience</label>
+                            <input type="text" id="experience" name="experience"
+                                placeholder="Enter Your Year(s) of experience">
+                        </div>
+                        <div class="form-group">
+                            <label for="photos">Job photos</label>
+                            <input type="file" id="photos" name="photos" multiple style="padding: 30px 30px; color: blue;">
+                            <p class="text-sm text-gray-500">Select up to 3 photos</p>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+
+    <script>
+        const form = document.getElementById('postSkillForm');
+        const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
+        const uploadPreset = 'upload_preset'; // Replace with your upload preset
+        const cloudName = 'df2q6gyuq'; // Replace with your cloud name
+
+        if (!token) {
+            window.location.replace('/worker-login');
+        }
+
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const profilepic = document.getElementById('profilepic').files[0];
+            const businessName = document.getElementById('businessName').value;
+            const skillName = document.getElementById('skillName').value;
+            const bio = document.getElementById('bio').value;
+            const location = document.getElementById('location').value;
+            const certifications = document.getElementById('certifications').value;
+            const experience = document.getElementById('experience').value;
+            const photos = document.getElementById('photos').files;
+
+            // Upload profile picture to Cloudinary
+            const profilePicData = new FormData();
+            profilePicData.append('file', profilepic);
+            profilePicData.append('upload_preset', uploadPreset);
+            try {
+                const profilePicResponse = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                    method: 'POST',
+                    body: profilePicData,
+                });
+
+                const profilePicResult = await profilePicResponse.json();
+
+
+                if (profilePicResponse.ok) {
+                    const profilePicUrl = profilePicResult.secure_url;
+
+                    // Upload photos to Cloudinary
+                    const photoUrls = [];
+                    for (let i = 0; i < photos.length; i++) {
+                        const photoData = new FormData();
+                        photoData.append('file', photos[i]);
+                        photoData.append('upload_preset', uploadPreset);
+                        const photoResponse = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                            method: 'POST',
+                            body: photoData,
+                        });
+                        const photoResult = await photoResponse.json();
+                        photoUrls.push(photoResult.secure_url);
+                    }
+
+                    try {
+                        const response = await fetch('/create-skill-profile', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${token}`,
+                            },
+                            body: JSON.stringify({
+                                businessName,
+                                skillName,
+                                bio,
+                                location,
+                                certifications,
+                                experience,
+                                profilepic: profilePicUrl,
+                                photos: photoUrls,
+                            }),
+                        });
+
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            alert(data.message);
+                            window.location.replace('/dashboard')
+                        } else {
+                            console.error(data);
+                            alert(data.message);
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        if (error.message) {
+                            alert(error.message);
+                        } else {
+                            alert('Error posting job');
+                        }
+                    }
+                } else {
+                    console.error(data);
+                    alert(data.error.message);
+                }
+            } catch (error) {
+                console.error(error);
+                if (error.message) {
+                    alert(error.message);
+                } else {
+                    alert('Error uploading image');
+                }
+            }
+        });
+
+
+        fetch('/user-details', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    window.location.replace('/worker-login');
+                }
+                return response.json();
+            })
+
+            .then(data => {
+                if (data.role == 'client') {
+                    window.location.replace('/dashboard'); // or any other page you want to redirect to
+                }
+
+                const welcomeMessageElement = document.getElementById('welcome-message');
+                welcomeMessageElement.textContent = `Welcome,  ${data.lastName} 👋`;
+            })
+            .catch(error => console.error('Error fetching user details:', error));
+
+        const logoutBtn = document.getElementById('logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.replace('/client-login');
+        });
+    </script>
+</body>
+
+</html>

@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Listings Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Skilled Workers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
     <script
         src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
     <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
@@ -26,7 +25,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 font-sans">
     <nav class="bg-white shadow-sm">
         <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -52,39 +51,27 @@
             </div>
         </div>
     </nav>
-    <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="w-full">
 
-            <div class="flex-1">
-                <div class="sm:flex justify-between items-center mb-6">
-                    <h1 class="text-2xl font-bold text-gray-900">Job Listings</h1>
-                    <div class="mb-6 mt-6 flex items-center">
-                        <a href="/post"><button id="post-job-btn"
-                                class="!rounded-button bg-green-600 hidden text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90 post-job-btn"><i
-                                    class="fas fa-plus mr-2"></i>Post a Job</button></a>
-                        <a href="/postskill"><button id="post-skill-btn"
-                                class="!rounded-button bg-green-600 hidden text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90 post-job-btn"><i
-                                    class="fas fa-plus mr-2"></i>Post a Skill</button></a>
-                        <a href="/skillworkers"><button id="skilledworkers"
-                                class="!rounded-button ml-4 bg-white text-green-600 border border-green-600 px-3 py-2.5 text-sm font-medium hover:bg-custom/10 post-job-btn">View Skilled workers</button></a>
-                    </div>
-                    
-                </div>
-                
-                <div id="job-listings" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-
-                </div>
-            </div>
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8 flex justify-between">
+            <h1 class="text-2xl font-bold text-gray-900">Find Skilled Workers</h1>
+            <a href="/dashboard"><button
+                    class="!rounded-button bg-green-600 text-white px-3 py-2.5 text-sm font-medium hover:bg-custom/90">
+                    &lt; Back</button></a>
         </div>
-    </main>
+
+        <div id="skilled-workers-listings" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           
+
+          
+        </div>
+    </div>
     <script>
-        const jobListingsContainer = document.getElementById('job-listings');
         const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
 
         if (!token) {
             window.location.replace('/client-login');
         }
-
 
         fetch('/user-details', {
             headers: {
@@ -103,67 +90,110 @@
                 welcomeMessageElement.textContent = `Welcome, ${data.lastName} 👋`;
 
                 // Toggle button visibility based on user role
-                const postJobBtn = document.getElementById('post-job-btn');
-                const postSkillBtn = document.getElementById('post-skill-btn');
+                // const postJobBtn = document.getElementById('post-job-btn');
+                // const postSkillBtn = document.getElementById('post-skill-btn');
 
-                if (data.role === 'client') {
-                    postJobBtn.style.display = 'block';
-                    postSkillBtn.style.display = 'none';
-                } else if (data.role === 'skilledWorker') {
-                    postSkillBtn.style.display = 'block';
-                    postJobBtn.style.display = 'none';
-                }
+                // if (data.role === 'client') {
+                //     postJobBtn.style.display = 'block';
+                //     postSkillBtn.style.display = 'none';
+                // } else if (data.role === 'skilledWorker') {
+                //     postSkillBtn.style.display = 'block';
+                //     postJobBtn.style.display = 'none';
+                // }
 
                 // Fetch job listings from API
-                fetch('/view-jobs')
+                //                 fetch('/view-jobs')
+                //                     .then(response => response.json())
+                //                     .then(jobsData => {
+                //                         jobsData.forEach(job => {
+                //                             const jobListingHTML = `
+                //             <div class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                //               <div class="flex flex-col">
+                // <div><img src="${job.imageUrl}" alt="Electrical Installation" style="height:250px" class="w-full object-cover rounded-lg mb-3" />
+                //                 <div class="flex justify-between items-start mb-4">
+                //                   <div>
+                //                     <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                //                       ${job.artisan}<i class="fas fa-check-circle text-green-600 text-sm"></i>
+                //                     </h3>
+                //                     <p class="text-sm text-gray-500 mt-1">Posted by ${job.fullName}</p>
+                //                   </div>
+                //                   <div class="flex items-center gap-2">
+                //                     ${data.role === 'skilledWorker' ? '<button class="!rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-custom/90">Apply Now</button>' : ''}
+                //                   </div>
+                //                 </div>
+                //               </div>
+                //               <div class="mt-3 grid grid-cols-2 gap-3">
+                //             <div>
+                //                 <p class="text-sm font-medium text-gray-500">Location</p>
+                //                 <p class="text-sm text-gray-900">${job.serviceAddress}</p>
+                //             </div>
+                //             <div>
+                //                 <p class="text-sm font-medium text-gray-500">Duration</p>
+                //                 <p class="text-sm text-gray-900">${job.duration}</p>
+                //             </div>
+                //             <div>
+                //                 <p class="text-sm font-medium text-gray-500">Budget</p>
+                //                 <p class="text-sm text-gray-900">${job.budget}</p>
+                //             </div>
+                //             <div>
+                //                 <p class="text-sm font-medium text-gray-500">Phone</p>
+                //                 <p class="text-sm text-gray-900">${job.phoneNumber}</p>
+                //             </div>
+                //         </div>
+                //         <div class="mt-4">
+                //             <p class="text-sm text-gray-700">${job.jobDescription}</p>
+                //         </div>
+                //         <div class="mt-4 flex flex-wrap gap-2">
+                //             <span class="px-2 py-1 bg-green-200 rounded-md text-xs text-gray-600">${job.natureOfService}</span>
+                //         </div>
+                //               </div>`;
+                //                             jobListingsContainer.insertAdjacentHTML('beforeend', jobListingHTML);
+                //                         });
+                //                     })
+                //                     .catch(error => console.error('Error fetching job listings:', error));
+
+
+                fetch('/skills')
                     .then(response => response.json())
-                    .then(jobsData => {
-                        jobsData.forEach(job => {
-                            const jobListingHTML = `
-            <div class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-              <div class="flex flex-col">
-<div><img src="${job.imageUrl}" alt="Electrical Installation" style="height:250px" class="w-full object-cover rounded-lg mb-3" />
-                <div class="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      ${job.artisan}<i class="fas fa-check-circle text-green-600 text-sm"></i>
-                    </h3>
-                    <p class="text-sm text-gray-500 mt-1">Posted by ${job.fullName}</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    ${data.role === 'skilledWorker' ? '<button class="!rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-custom/90">Apply Now</button>' : ''}
-                  </div>
+                    .then(data => {
+                        const skilledWorkersListingsContainer = document.getElementById('skilled-workers-listings');
+                        data.forEach(worker => {
+                            const workerListingHTML = `
+                             <div class="bg-white rounded-lg shadow-sm p-6">
+                <div class="flex items-start gap-4"> <img
+                        src=${worker.profilepic[0]}
+                        class="w-20 h-20 rounded-full object-cover" alt="Worker">
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold">${worker.businessName}</h3>
+                        <p class="text-sm text-gray-600 mb-2">${worker.skillName}</p>
+                        <div class="flex gap-2 mb-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-md text-xs">${worker.certifications.join(', ')}</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-md text-xs">${worker.experience} Year(s)</span>
+                        </div>
+                        <p class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> ${worker.location}</p>
+                    </div>
                 </div>
-              </div>
-              <div class="mt-3 grid grid-cols-2 gap-3">
-            <div>
-                <p class="text-sm font-medium text-gray-500">Location</p>
-                <p class="text-sm text-gray-900">${job.serviceAddress}</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-600 mb-4">${worker.bio}</p>
+                    <div class="grid grid-cols-3 gap-2 mb-4"> <img
+                            src=${worker.photos[0]} alt="Work"> <img
+                            src=${worker.photos[1]}
+                            class="w-full h-20 object-cover rounded" alt="Work"> <img
+                            src=${worker.photos[2]}
+                            class="w-full h-20 object-cover rounded" alt="Work"> </div>
+                    <button class="!rounded-button w-full bg-custom text-white py-2 font-medium"><i
+                            class="fas fa-phone-alt mr-2"></i> Contact Now</button>
+                </div>
             </div>
-            <div>
-                <p class="text-sm font-medium text-gray-500">Duration</p>
-                <p class="text-sm text-gray-900">${job.duration}</p>
-            </div>
-            <div>
-                <p class="text-sm font-medium text-gray-500">Budget</p>
-                <p class="text-sm text-gray-900">${job.budget}</p>
-            </div>
-            <div>
-                <p class="text-sm font-medium text-gray-500">Phone</p>
-                <p class="text-sm text-gray-900">${job.phoneNumber}</p>
-            </div>
-        </div>
-        <div class="mt-4">
-            <p class="text-sm text-gray-700">${job.jobDescription}</p>
-        </div>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-green-200 rounded-md text-xs text-gray-600">${job.natureOfService}</span>
-        </div>
-              </div>`;
-                            jobListingsContainer.insertAdjacentHTML('beforeend', jobListingHTML);
+      `;
+                            skilledWorkersListingsContainer.insertAdjacentHTML('beforeend', workerListingHTML);
                         });
                     })
-                    .catch(error => console.error('Error fetching job listings:', error));
+                    .catch(error => console.error('Error fetching skilled worker listings:', error));
+
+
+
+
             })
             .catch(error => console.error('Error fetching user details:', error));
 
