@@ -72,7 +72,7 @@
                 </div>
                 
                 <div id="job-listings" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-
+                    <!-- Job listings will be rendered here -->
                 </div>
             </div>
         </div>
@@ -118,6 +118,20 @@
                 fetch('/view-jobs')
                     .then(response => response.json())
                     .then(jobsData => {
+                        if (jobsData.length === 0) {
+                            const noJobsMessage = document.createElement('p');
+noJobsMessage.textContent = 'No Job posted yet';
+noJobsMessage.style.textAlign = 'center';
+noJobsMessage.style.fontSize = '24px';
+noJobsMessage.style.fontWeight = 'bold';
+noJobsMessage.style.position = 'absolute';
+noJobsMessage.style.top = '50%';
+noJobsMessage.style.left = '50%';
+noJobsMessage.style.transform = 'translate(-50%, -50%)';
+document.getElementById('job-listings').appendChild(noJobsMessage);
+
+      } else {
+
                         jobsData.forEach(job => {
                             const jobListingHTML = `
             <div class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
@@ -162,6 +176,7 @@
               </div>`;
                             jobListingsContainer.insertAdjacentHTML('beforeend', jobListingHTML);
                         });
+                    }
                     })
                     .catch(error => console.error('Error fetching job listings:', error));
             })
